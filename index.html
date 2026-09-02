@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Management System</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <div>
+                <p class="eyebrow">CRUD Application</p>
+                <h1>Employee Management</h1>
+                <p class="header-description">
+                    Create, view, update and manage employee records.
+                </p>
+            </div>
+
+            <div class="employee-counter">
+                <div class="counter-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div>
+                    <span>Total Employees</span>
+                    <strong id="employeeCount">0</strong>
+                </div>
+            </div>
+        </header>
+
+
+        <main class="dashboard">
+
+            <!-- Form Card -->
+            <section class="card form-card">
+
+                <div class="card-header">
+                    <div>
+                        <p class="section-label">Employee Details</p>
+                        <h2 id="formTitle">Add Employee</h2>
+                    </div>
+
+                    <div class="header-icon">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                </div>
+
+                <form id="employeeForm" autocomplete="off">
+
+                    <div class="form-group">
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <div class="input-group">
+                            <i class="fa-regular fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                placeholder="e.g. Syed Hassan Ali"
+                                required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="empCode">
+                            Employee Code
+                        </label>
+
+                        <div class="input-group">
+                            <i class="fa-regular fa-id-card"></i>
+
+                            <input
+                                type="text"
+                                id="empCode"
+                                name="empCode"
+                                placeholder="e.g. EMP-001"
+                                required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="salary">
+                            Salary
+                        </label>
+
+                        <div class="input-group">
+                            <span class="currency">Rs.</span>
+
+                            <input
+                                type="number"
+                                id="salary"
+                                name="salary"
+                                placeholder="e.g. 75000"
+                                min="0"
+                                required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="city">
+                            City
+                        </label>
+
+                        <div class="input-group">
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                placeholder="e.g. Karachi"
+                                required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add Employee</span>
+                        </button>
+
+                        <button type="reset" class="btn btn-secondary">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            Reset
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- Employee Table Card -->
+            <section class="card table-card">
+
+                <div class="table-card-header">
+
+                    <div>
+                        <p class="section-label">Employee Records</p>
+                        <h2>Employee Directory</h2>
+                    </div>
+
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search employees...">
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table class="employee-table" id="employeeList">
+
+                        <thead>
+                            <tr>
+                                <th>Employee</th>
+                                <th>Employee Code</th>
+                                <th>Salary</th>
+                                <th>City</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody></tbody>
+
+                    </table>
+
+
+                    <!-- Empty State -->
+                    <div class="empty-state" id="emptyState">
+
+                        <div class="empty-icon">
+                            <i class="fa-solid fa-user-group"></i>
+                        </div>
+
+                        <h3>No employees yet</h3>
+
+                        <p>
+                            Add your first employee using the form.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+
+        <div class="toast-icon">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <div>
+            <strong id="toastTitle">Success</strong>
+            <p id="toastMessage">Employee added successfully.</p>
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
